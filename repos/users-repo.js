@@ -1,14 +1,14 @@
 import Repo from "./repo.js";
 
-class UsersRepo extends Repo {
+class StudentsRepo extends Repo {
 
-    static DB_NAME = "Users"
+    static DB_NAME = "Students"
 
     /**
      * Creates the user repo
      */
     constructor() {
-        super(UsersRepo.DB_NAME);
+        super(StudentsRepo.DB_NAME);
     }
 
     /**
@@ -16,16 +16,16 @@ class UsersRepo extends Repo {
      * @param {string} username The username of the user to add
      * @param {string} password The password of the user to add
      */
-    async addUser(username, password) {
+    async addStudent(username, password) {
         return await this.collection.insertOne({ _id: username, password: password, classes: [] })
     }
 
     /**
-     * Authenticates a user.
-     * @param {string} username The username to authenticate
-     * @returns An object containing user data if the user is found, null otherwise.
+     * Gets a student from the db.
+     * @param {string} username The username of the student
+     * @returns An object containing user data if the student is found, null otherwise.
      */
-    async getUser(username) {
+    async getStudent(username) {
         const user = await this.collection.findOne({ _id: username });
 
         // No user found

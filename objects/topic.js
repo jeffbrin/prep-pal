@@ -44,6 +44,10 @@ export default class Topic {
         this.avgTimePerQuestion = ((oldCount * this.avgTimePerQuestion) + time) / this.questionsCount
     }
 
+    /**
+     * Returns a serializable version of the topic.
+     * @returns A serializable version of a topic
+     */
     serialize() {
         return {
             name: this.name,
