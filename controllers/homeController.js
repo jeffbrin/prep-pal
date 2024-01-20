@@ -10,19 +10,19 @@ const routeRoot = '/';
 //Define the home page route
 router.get('/', (req, res) => {
     // Render the home page view
-    res.render('home.hbs', { error: "Testing error", confirmation: "Testing confirmation", currentPage: "home"});
+    res.render('home.hbs', { currentPage: "home" });
 });
 
 //Define a route for the sign-up page
 router.get('/signup', (req, res) => {
     // Render the sign-up page view
-    res.render('signup.hbs');
+    res.render('signup.hbs', { currentPage: "signup" });
 });
 
 //Define a route for the sign-in page
 router.get('/login', (req, res) => {
     // Render the login page view
-    res.render('login.hbs');
+    res.render('login.hbs', { currentPage: "login" });
 });
 
 export default router;
