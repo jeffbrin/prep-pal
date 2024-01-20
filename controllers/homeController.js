@@ -8,19 +8,21 @@ const routeRoot = '/';
 
 
 //Define the home page route
-homeRouter.get('/', (req, res) => {
+router.get('/', (req, res) => {
     // Render the home page view
     res.render('home.hbs');
 });
 
 //Define a route for the sign-up page
-homeRouter.get('/signup', (req, res) => {
+router.get('/signup', (req, res) => {
     // Render the sign-up page view
     res.render('signup.hbs');
 });
 
 //Define a route for the sign-in page
-homeRouter.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
     // Render the login page view
     res.render('login.hbs');
 });
+
+export default router;
