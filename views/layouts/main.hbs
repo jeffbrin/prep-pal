@@ -1,0 +1,44 @@
+{{!--
+  Layout Template: main.hbs
+  Purpose: Serves as the primary layout for the entire website/application.
+           This layout defines the common HTML structure and includes 
+           placeholders for page-specific content.
+  Global Components:
+    - Header ({{> header}}): Included at the top of every page.
+  Placeholders:
+    - {{{body}}}: A placeholder where the content of the individual page templates
+                 will be injected.
+  Stylesheets and Scripts:
+    - Bootstrap for styling.
+    - Custom stylesheets (styles.css).
+    - Bootstrap JS for interactive components.
+--}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {{!-- Bootstrap CSS--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z0I5t9z7s2kP0cHy1z9em+6edf3eS0RfyF5Njv" crossorigin="anonymous">
+
+    {{!-- Custom CSS --}}
+    <link rel="stylesheet" href="/public/style.css">
+    {{!-- Character Set --}}
+    <meta charset="utf-8">
+    {{!-- Page title --}}
+    <title>PrepPal</title>
+</head>
+
+<body>
+    {{!-- Header placeholer --}}
+    {{> header}}
+    {{!-- Page content placeholder --}}
+    {{{body}}}
+    {{!-- Bootstrap JS --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"
+        integrity="sha384-cn7zB8/SPCyr1XmQ9Rr9lXr6upR4W3r6z0V2xIeDkIbb6w9e4K7P4eL4g6WGwjp4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
