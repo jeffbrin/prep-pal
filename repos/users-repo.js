@@ -17,7 +17,7 @@ class UsersRepo extends Repo {
      * @param {string} password The password of the user to add
      */
     async addUser(username, password) {
-        return await this.collection.insertOne({ _id: username, password: password })
+        return await this.collection.insertOne({ _id: username, password: password, classes: [] })
     }
 
     /**
