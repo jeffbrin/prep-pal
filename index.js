@@ -1,12 +1,7 @@
-import db from "./database/database.js";
-import classRepo from "./repos/class-repo.js";
+import app from "./app.js";
+const port=1339;
 
-async function main() {
-    await db.initialize("TestDB")
-    await classRepo.initialize()
-    const classCode = await classRepo.addClass("Linear Algebra", "Noomen Ghorbel")
-
-    console.log(await classRepo.getClass(classCode))
-}
-
-main()
+model.initialize(dbName, false) 
+  .then(
+    app.listen(port) // Run the server
+  );
