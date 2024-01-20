@@ -3,6 +3,8 @@
  */
 export default class Topic {
 
+    static DATA_FOLDER = "topic-data"
+
     /**
      * The name of the topic
      */
@@ -24,12 +26,31 @@ export default class Topic {
     questionsCount
 
     /**
+     * Files with data related to this topic.
+     */
+    files
+
+    /**
+     * Text with info related to this topic used to prompt the model
+     */
+    infoText
+
+    /**
      * Instantiates the topic with a name
      * @param {string} name The name of the topic
+     * @param {string} infoText Any info related to this topic to prompt the model with
+     * @param {string} files Files with info related to this topic to prompt the model with
      */
-    constructor(name) {
+    constructor(name, infoText = "", files = []) {
         this.name = name
+        this.avgScore = 0
+        this.avgTimePerQuestion = 0
+        this.questionsCount = 0
+        this.infoText = infoText
+        this.files = files
     }
+
+
 
     /**
      * Updates the topic after the user answers a question.
