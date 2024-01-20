@@ -1,0 +1,1 @@
+export const generateClassCode = (codeLength) => { return (Math.random() + 1).toString(36).substring(2, codeLength + 2); }
