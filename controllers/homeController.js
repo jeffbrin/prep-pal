@@ -10,7 +10,7 @@ const routeRoot = '/';
 //Define the home page route
 router.get('/', (req, res) => {
     // Render the home page view
-    res.render('home.hbs');
+    res.render('home.hbs', { error: "Testing error", confirmation: "Testing confirmation", currentPage: "home"});
 });
 
 //Define a route for the sign-up page

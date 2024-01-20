@@ -4,11 +4,12 @@ const app = express();
 import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
 import router from './controllers/homeController.js';
+import { eq } from "./helpers/handlebars-helpers.js";
 //import studentRouter from './controllers/studentController';
 
 // Tell the app to use handlebars templating engine.  
 // Configure the engine to use a simple .hbs extension to simplify file naming
-app.engine('hbs', engine({ extname: '.hbs' }));
+app.engine('hbs', engine({ extname: '.hbs', helpers: { eq } }));
 app.set('view engine', 'hbs');
 app.set('views', './views');  // indicate folder for views
 
