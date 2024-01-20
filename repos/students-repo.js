@@ -15,9 +15,11 @@ class StudentsRepo extends Repo {
      * Creates a new user and adds it to the database.
      * @param {string} username The username of the user to add
      * @param {string} password The password of the user to add
+     * @returns The student's username.
      */
     async addStudent(username, password) {
-        return await this.collection.insertOne({ _id: username, password: password, classes: [] })
+        const insertedObj = await this.collection.insertOne({ _id: username, password: password, classes: [] })
+        return insertedObj.insertedId
     }
 
     /**
