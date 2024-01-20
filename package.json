@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jeffbrin/prep-pal#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.2",
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2"
   }
