@@ -40,17 +40,18 @@ export default class Topic {
      * @param {string} name The name of the topic
      * @param {string} infoText Any info related to this topic to prompt the model with
      * @param {string} files Files with info related to this topic to prompt the model with
+     * @param {number} avgScore The average score for this topic for this user.
+     * @param {number} avgTimePerQuestion The average time per question for this topic for this user.
+     * @param {number} questionsCount The number of questions of this type that the user has answered
      */
-    constructor(name, infoText = "", files = []) {
+    constructor(name, infoText = "", files = [], avgScore = 0, avgTimePerQuestion = 0, questionsCount = 0) {
         this.name = name
-        this.avgScore = 0
-        this.avgTimePerQuestion = 0
-        this.questionsCount = 0
+        this.avgScore = avgScore
+        this.avgTimePerQuestion = avgTimePerQuestion
+        this.questionsCount = questionsCount
         this.infoText = infoText
         this.files = files
     }
-
-
 
     /**
      * Updates the topic after the user answers a question.
@@ -71,8 +72,10 @@ export default class Topic {
      */
     serialize() {
         return {
-            name: this.name,
+            _id: this.name,
             avgScore: this.avgScore,
+            infoText: this.infoText,
+            files: this.files,
             avgTimePerQuestion: this.avgTimePerQuestion,
             questionsCount: this.questionsCount
         }

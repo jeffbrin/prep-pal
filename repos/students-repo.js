@@ -1,3 +1,4 @@
+import Topic from "../objects/topic.js";
 import Repo from "./repo.js";
 
 class StudentsRepo extends Repo {
@@ -35,6 +36,10 @@ class StudentsRepo extends Repo {
             return null
         }
 
+        user.topics = user.topics.map(topic => new Topic(
+            topic._id, topic.infoText, topic.files, topic.avgScore, topic.avgTimePerQuestion, topic.questionsCount
+        ))
+
         // Change _id to username
         user.username = user._id
         delete user._id
@@ -42,6 +47,13 @@ class StudentsRepo extends Repo {
         return user
     }
 
+    /**
+     * Updates a topic to match the topic passed
+     * @param {Topic} topic The new state of the topic to be updated.
+     */
+    async updateTopic(topic) {
+        await this.collection.updateOne({ _id: topic.name }, topic.serialize())
+    }
 
 }
 

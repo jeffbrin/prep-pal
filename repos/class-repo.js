@@ -38,7 +38,6 @@ class ClassRepo extends Repo {
         return new Class(classObj.name, classObj.professor, classObj.topics, classObj.classCode)
     }
 
-
 }
 
 const classRepo = new ClassRepo()
