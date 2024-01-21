@@ -13,6 +13,8 @@ const requiresAuth = pkg.requiresAuth;
 const maxQuestions = 7;
 let questionCount = 3;
 let currentQuestion = 0;
+let wrongAnswers = 0;
+let correctAnswers = 0;
 
 studentRouter.get('/classes', requiresAuth(), (req, res) => {
     let firstName = req.firstName;
@@ -90,6 +92,18 @@ studentRouter.post("/submit-answer", requiresAuth(), async (req, res) => {
         "Do not use the word 'sure' in your response."
 
     const response = await assistant.sendMessageAndGetResponse(email, answer);
+    try {
+        
+        let jsonResponse = JSON.parse(response)
+        if (jsonResponse.correct === false) {
+            questionCount++;
+            wrongAnswers++;
+        }
+        else
+            correctAnswers++;
+    } catch (error) {
+        wrongAnswers++;
+    }
     res.send(response)
 })
 
@@ -103,12 +117,8 @@ studentRouter.post("/next-question", requiresAuth(), async (req, res) => {
     const email = req.email;
     //const msg = 'Ask the next question. Do not respond to me, only ask the question. If you have asked all the original questions, respond with "{}".'
     const msg = 'If the student didn\'t answer the question correctly, ask another question similar to the previous one. ' +
-        'If the student answered the question correctly, ask a completely different question about the same topic.' +
-        'Please respond in the following json format: {"correct": bool, "explanation": ...}. '
+        'If the student answered the question correctly, ask a completely different question about the same topic.'
     response = await assistant.sendMessageAndGetResponse(email, msg);
-    if (response.correct === "false") {
-        questionCount++;
-    }
     res.send(response);
 })
 
