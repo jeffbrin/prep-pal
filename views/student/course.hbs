@@ -1,0 +1,10 @@
+<ul class="list-unstyled">
+    {{#each topics}}
+    <li>
+        <div class="class-block rounded border-color-{{modulo @index 5}}"
+            onclick="window.location='/student/topic?topic={{this.name}}&classCode={{../classCode}}'">
+            <h3>{{this.name}}</h3>
+        </div>
+    </li>
+    {{/each}}
+</ul>

@@ -18,12 +18,11 @@ class StudentsRepo extends Repo {
     /**
      * Creates a new user and adds it to the database.
      * @param {string} username The username of the user to add
-     * @param {string} password The password of the user to add
      * @param {Array} classes The classes for this student
      * @returns The student's username.
      */
-    async addStudent(username, password, classes = []) {
-        const insertedObj = await this.collection.insertOne({ _id: username, password: password, classes: classes.map(classObj => classObj.serialize()) })
+    async addStudent(username, classes = []) {
+        const insertedObj = await this.collection.insertOne({ _id: username, classes: classes.map(classObj => classObj.serialize()) })
         return insertedObj.insertedId
     }
 
@@ -50,7 +49,6 @@ class StudentsRepo extends Repo {
         // Change _id to username
         user.username = user._id
         delete user._id
-        delete user.password
         return user
     }
 
@@ -141,6 +139,18 @@ class StudentsRepo extends Repo {
      */
     async addClass(student, classObj) {
         const studentObj = await this.getStudent(student)
+
+        let alreadyInClass = false
+        studentObj.classes.forEach(classObjDB => {
+            if (classObj.classCode == classObjDB.classCode) {
+                alreadyInClass = true;
+                return
+            }
+        })
+        if (alreadyInClass) {
+            return;
+        }
+
         studentObj.classes.push(classObj)
 
         await this.collection.updateOne({ _id: studentObj.username }, {
