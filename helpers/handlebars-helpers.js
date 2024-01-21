@@ -6,3 +6,4 @@ export const lte = (v1, v2) => v1 <= v2;
 export const gte = (v1, v2) => v1 >= v2;
 export const and = (v1, v2) => v1 && v2;
 export const or = (v1, v2) => v1 || v2;
+export const modulo = (index, divisor) => index % divisor;

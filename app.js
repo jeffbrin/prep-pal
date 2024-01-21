@@ -3,7 +3,7 @@ import { LOGGER } from "./logger.js";
 import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
 import router from './controllers/homeController.js';
-import { eq, or } from "./helpers/handlebars-helpers.js";
+import { eq, modulo } from "./helpers/handlebars-helpers.js";
 import studentRouter from './controllers/studentController.js';
 import { auth } from "express-openid-connect"
 import cookieParser from "cookie-parser";
@@ -28,7 +28,7 @@ app.use(cookieParser())
 
 // Tell the app to use handlebars templating engine.  
 // Configure the engine to use a simple .hbs extension to simplify file naming
-app.engine('hbs', engine({ extname: '.hbs', helpers: { eq, or } }));
+app.engine('hbs', engine({ extname: '.hbs', helpers: { eq, modulo } }));
 app.set('view engine', 'hbs');
 app.set('views', './views');  // indicate folder for views
 
