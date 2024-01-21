@@ -18,8 +18,10 @@ studentRouter.get('/classes', requiresAuth(), (req, res) => {
     });
 });
 
-studentRouter.get('/course', requiresAuth(), (req, res) => {
-    res.render('student/course.hbs', { currentPage: "Course", username: "placeholder name" });
+studentRouter.get('/course', requiresAuth(), async (req, res) => {
+    const classObj = await classRepo.getClass(req.query.classCode)
+    const topics = classObj.topics
+    res.render('student/course.hbs', { currentPage: "Course", username: "placeholder name", topics: topics, classCode: classObj.classCode });
 });
 
 studentRouter.get('/join-class', requiresAuth(), (req, res) => {

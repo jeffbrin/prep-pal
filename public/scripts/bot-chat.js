@@ -2,13 +2,18 @@ ANSWER_ENDPOINT = "/student/submit-answer"
 QUESTION_ENDPOINT = "/student/next-question"
 END_ENDPOINT = "/student/end-session"
 
-const questionElement = '<div class="question-div"><p></p><input type="text"><button onclick="submit()">submit</button></div>'
+const questionElement = '<div class="question-div"><p></p><input type="text"><button onclick="submit()">submit</button><p></p></div>'
 
-async function submitAnswer(answer) {
+async function submitAnswer(answer, div) {
     const response = await $.post(ANSWER_ENDPOINT, {
         msg: answer,
     })
-    alert(response)
+    try {
+        const result = JSON.parse(response)
+        div.children[div.children.length - 1].innerText = result['explanation']
+    } catch (e) {
+        div.children[div.children.length - 1].innerText = response
+    }
     promptQuestion()
 }
 
@@ -21,7 +26,7 @@ function submit() {
     const input = latestQuestionDiv.children[1];
     const button = latestQuestionDiv.children[2];
 
-    submitAnswer(input.value);
+    submitAnswer(input.value, latestQuestionDiv);
 
     // Shut off the current button and input
     input.disabled = true
@@ -35,7 +40,10 @@ async function promptQuestion() {
 
         if (q == "{}") {
             await $.post(END_ENDPOINT)
-            window.location.href = "/student/classes"
+            const elem = document.createElement('div')
+            elem.innerHTML = '<button id="return-btn" onclick="back()">Return</button>'
+            $("body")[0].appendChild(elem)
+            return;
         }
 
         const elem = document.createElement('div')
@@ -50,4 +58,9 @@ async function promptQuestion() {
     catch (e) {
         console.log(e)
     }
+
+}
+
+function back() {
+    window.location.href = "/student/classes";
 }
