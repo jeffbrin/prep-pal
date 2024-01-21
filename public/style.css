@@ -237,13 +237,16 @@ form {
     cursor: pointer;
     padding: 20px;
     margin-bottom: 10px;
-    background-color: #ffffff; /* White background */
-    border-left: 10px solid var(--color-blue); /* Thicker colored border on the left */
+    background-color: #ffffff;
+    /* White background */
+    border-left: 10px solid var(--color-blue);
+    /* Thicker colored border on the left */
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .class-block:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow effect on hover */
 }
 
 
@@ -265,4 +268,166 @@ form {
 
 .border-color-4 {
     border-left-color: var(--color-pink);
+}
+
+.question-div {
+    margin-top: 20px;
+}
+
+.question-div p {
+    margin-bottom: 10px;
+}
+
+.question-div .form-control {
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: #27D1B3;
+    /* Teal color for submit button */
+    border: none;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #20B89A;
+    /* Darker shade of teal for hover */
+}
+
+.question-div {
+    margin-top: 20px;
+    align-items: center;
+    /* Align items vertically */
+}
+
+.question-div p {
+    margin-bottom: 0;
+    /* Remove bottom margin from paragraph */
+}
+
+.question-div .form-control {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: #27D1B3;
+    /* Teal color for submit button */
+    border: none;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #20B89A;
+    /* Darker shade of teal for hover */
+}
+
+.image-btn {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.image-btn img {
+    height: 30px;
+    /* Adjust as needed */
+    width: auto;
+}
+
+.skip-btn {
+    background-color: #FB6672;
+    /* Soft pink color for skip button */
+    color: white;
+    border: none;
+    margin-top: 10px;
+}
+
+.skip-btn:hover {
+    background-color: #E05A6D;
+    /* Darker shade of pink for hover */
+}
+
+.container {
+    height: 100vh;
+    /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Space between question and skip button */
+}
+
+.question-div {
+    margin-top: 20px;
+}
+
+.question-div p {
+    margin-bottom: 10px;
+}
+
+.question-div .form-control {
+    margin-top: 10px;
+}
+
+.image-btn {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.image-btn img {
+    height: 20px;
+    /* Smaller size for the question mark */
+    width: auto;
+}
+
+.submit-btn {
+    background-color: #27D1B3;
+    border: none;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #20B89A;
+}
+
+.skip-btn {
+    background-color: #FB6672;
+    color: white;
+    border: none;
+}
+
+.skip-btn:hover {
+    background-color: #E05A6D;
+}
+
+.no-scroll-page {
+    height: 90vh;
+    /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ensures space distribution */
+    padding: 20px 0;
+    /* Adds some padding at top and bottom */
+}
+
+.no-scroll-page .question-div {
+    overflow-y: auto;
+    /* Allows scrolling within this div if needed */
+    flex-grow: 1;
+    /* Allows this div to grow */
+    margin-bottom: 10px;
+    /* Adds some space at the bottom */
+}
+
+.no-scroll-page .question-div textarea {
+    height: auto;
+    /* Adjusts height of textarea */
+    max-height: 40vh;
+    /* Limits height to ensure it fits in the viewport */
+}
+
+.no-scroll-page .d-flex.justify-content-end {
+    margin-top: 10px;
+    /* Adds some space above the skip button */
 }
