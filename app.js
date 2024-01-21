@@ -1,15 +1,15 @@
 import express from "express";
 import { LOGGER } from "./logger.js";
-const app = express();
 import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
 import router from './controllers/homeController.js';
 import { eq, or } from "./helpers/handlebars-helpers.js";
-import studentRouter from './controllers/StudentController.js';
+import studentRouter from './controllers/studentController.js';
 import { auth } from "express-openid-connect"
 import cookieParser from "cookie-parser";
 import { getAccessToken } from "./helpers/get-user-info.js";
 
+const app = express();
 
 const config = {
     authRequired: false,
