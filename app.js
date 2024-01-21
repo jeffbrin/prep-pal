@@ -4,7 +4,7 @@ import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
 import router from './controllers/homeController.js';
 import { eq, modulo } from "./helpers/handlebars-helpers.js";
-import studentRouter from './controllers/studentController.js';
+import studentRouter from './controllers/StudentController.js';
 import { auth } from "express-openid-connect"
 import cookieParser from "cookie-parser";
 import { getAccessToken } from "./helpers/get-user-info.js";
