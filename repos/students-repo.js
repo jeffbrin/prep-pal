@@ -141,6 +141,18 @@ class StudentsRepo extends Repo {
      */
     async addClass(student, classObj) {
         const studentObj = await this.getStudent(student)
+
+        let alreadyInClass = false
+        studentObj.classes.forEach(classObjDB => {
+            if (classObj.classCode == classObjDB.classCode) {
+                alreadyInClass = true;
+                return
+            }
+        })
+        if (alreadyInClass) {
+            return;
+        }
+
         studentObj.classes.push(classObj)
 
         await this.collection.updateOne({ _id: studentObj.username }, {
