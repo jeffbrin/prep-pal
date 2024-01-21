@@ -18,7 +18,6 @@ router.get('/signup', (req, res) => {
 //Define a route for the sign-in page
 router.get('/login', (req, res) => {
     // Render the login page view
-    handleAuth();
     res.render('login.hbs', { currentPage: "Login" });
 });
 

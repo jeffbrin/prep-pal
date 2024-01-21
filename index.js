@@ -1,3 +1,3 @@
 import app from "./app.js";
-const port=80;
+const port = 3000;
 app.listen(port) // Run the server
