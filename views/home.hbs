@@ -1,0 +1,38 @@
+<div style="display: flex; width: 100%;">
+    <div style="flex: 1" class="blob"> 
+        <img src="/images/blob1.svg" style="object-fit: cover;"/>
+        <h2 style="vertical-align: center; position: absolute;  top: 80%; left: 30%; color: white; font-size: 4rem" >Welcome to PrepPal!</h2>
+    </div>
+    <div style="flex: 1;" class="blob"> 
+        <img src="/images/blob2.svg" style="object-fit: cover;"/>
+        <h2 style="vertical-align: center; position: absolute;  top: 80%; left: 30%; color: white; font-size: 4rem">Welcome to PrepPal!</h2>
+    </div>
+    <div style="width: 100%" class="blob"> 
+        <img src="/images/blob3.svg" style="object-fit: cover;"/>
+        <h2 style="vertical-align: center; position: absolute; top: 80%; left: 30%; color: white; font-size: 4rem">Welcome to PrepPal!</h2>
+    </div>
+
+</div>
+<style>
+    body{
+        overflow: hidden
+    }
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+
+    const blobs = document.getElementsByClassName("blob")
+    const rand = Math.random()
+    if (rand < 0.33){
+        blobs[1].hidden = true
+        blobs[2].hidden = true
+    }
+    else if (rand < 0.66){
+        blobs[0].hidden = true
+        blobs[2].hidden = true
+    }
+    else{
+        blobs[0].hidden = true
+        blobs[1].hidden = true
+    }
+</script>
