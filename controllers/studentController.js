@@ -98,7 +98,6 @@ studentRouter.post("/next-question", requiresAuth(), async (req, res) => {
 studentRouter.post('/ask-question', requiresAuth(), async (req, res) => {
     const email = req.email;
     const question = req.body.question;
-    console.log(question);
     const answer = await assistant.sendMessageAndGetResponse(email, question);
 
     res.send(answer);
