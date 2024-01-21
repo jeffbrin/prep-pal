@@ -50,4 +50,30 @@ body {
     fill: #FC9744; /* Warm Orange for Icons */
 }
 
-/* Additional Styling as per requirement */
+/* Increase the base font size for the header. This will scale up most text elements. */
+header {
+    font-size: 1.1em; /* Adjust this value to scale the text size */
+}
+
+/* Adjust navbar brand (logo/text) size if needed */
+.navbar-brand {
+    font-size: 1.3em; /* This makes the brand/logo text larger */
+}
+
+/* Adjust the size of the buttons in the navbar */
+.btn {
+    padding: 0.6em 1.2em; /* Increase padding to make buttons larger */
+    font-size: 1.05em; /* Slightly increase font size for button text */
+}
+
+/* Adjust navbar link sizes */
+.nav-link {
+    font-size: 1.05em; /* Slightly increase the font size of navbar links */
+    padding: 0.5em 1em; /* Adjust padding for better spacing */
+}
+
+/* You might also want to adjust the size of the SVG icons in the header */
+svg {
+    width: 1.2em; /* Adjust the width */
+    height: 1.2em; /* Adjust the height */
+}
