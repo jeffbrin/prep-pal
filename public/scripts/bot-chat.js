@@ -40,10 +40,10 @@ async function promptQuestion() {
         const q = await $.post(QUESTION_ENDPOINT)
 
         if (q == "{}") {
-            await $.post(END_ENDPOINT)
-            const elem = document.createElement('div')
-            elem.innerHTML = '<button id="return-btn" onclick="back()">Return</button>'
-            $("body")[0].appendChild(elem)
+            // await $.post(END_ENDPOINT)
+            // const elem = document.createElement('div')
+            // elem.innerHTML = '<button id="return-btn" onclick="back()">Return</button>'
+            // $("body")[0].appendChild(elem)
             return;
         }
 
