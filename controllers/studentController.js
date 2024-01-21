@@ -3,10 +3,10 @@ import pkg from 'express-openid-connect';
 const requiresAuth = pkg.requiresAuth
 import studentsRepo from '../repos/students-repo.js';
 import assistant from '../helpers/chatbot.js';
-import { readFile } from 'fs';
 import path from 'path';
 import Topic from '../objects/topic.js';
 import classRepo from '../repos/class-repo.js';
+import { readFile } from '../helpers/file-manager.js';
 
 //Create a new express router
 const studentRouter = express.Router();
@@ -31,9 +31,6 @@ studentRouter.post('/join-class', requiresAuth(), async (req, res) => {
     res.redirect('/student/classes');
 })
 
-
-
-
 studentRouter.get('/topic', requiresAuth(), async (req, res) => {
     // TODO: Send these to this endpoint
     const topicName = req.query.topic
@@ -54,22 +51,25 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
     let data = ""
     // Get any data from topic file
     topic.files.forEach(async file => {
-        console.log(`Reading ${file}`)
-        const fileData = (await readFile(path.join(Topic.DATA_FOLDER, file))).toString();
+        const filename = path.join(Topic.DATA_FOLDER, file)
+        const fileData = (await readFile(filename)).toString();
         data += fileData + "\n"
     })
 
     data += topic.infoText
 
-    assistant.initializeThread(req.email, topic, data)
+    await assistant.initializeThread(req.email, topic, data)
     res.render('student/topic.hbs', { currentPage: "Topic", username: req.firstName });
 });
 
 studentRouter.post("/query_bot", requiresAuth(), async (req, res) => {
     const email = req.email;
+    console.log(email)
     const msg = req.body.msg;
 
+    console.log(msg)
     const response = await assistant.sendMessageAndGetResponse(email, msg);
+    console.log(response)
     res.send(response)
 })
 

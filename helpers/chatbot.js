@@ -15,10 +15,10 @@ class Assistant {
     //Create an assistant
     this.myAssistant = await openai.beta.assistants.create({
       instructions:
-        "You are a personal " + topic + " tutor. " +
+        "You are a personal " + topic.name + " tutor. " +
         "When asked a question, answer it with your own data or use the following data, if present: " + data +
         "Answer in plain text without formatting.",
-      name: this.topic + " Tutor",
+      name: topic.name + " Tutor",
 
       tools: [{ type: "code_interpreter" }],
       model: "gpt-3.5-turbo-1106",
@@ -32,7 +32,7 @@ class Assistant {
     const thread = this.threads[username]
     // Create a message
     await openai.beta.threads.messages.create(
-      this.threads.id,
+      thread.id,
       {
         role: "user",
         content: message

@@ -1,5 +1,6 @@
-BOT_ENDPOINT = "/query_bot"
+BOT_ENDPOINT = "/student/query_bot"
 $.post(BOT_ENDPOINT, {
-    msg: "Hey There!",
-    function(result) { alert(result) }
+    msg: "Who are you? What is your purpose?",
+}).then(response => {
+    alert(response)
 })
