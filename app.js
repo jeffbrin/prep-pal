@@ -7,6 +7,9 @@ import router from './controllers/homeController.js';
 import { eq, or } from "./helpers/handlebars-helpers.js";
 import studentRouter from './controllers/StudentController.js';
 import { auth } from "express-openid-connect"
+import cookieParser from "cookie-parser";
+import { getAccessToken } from "./helpers/get-user-info.js";
+
 
 const config = {
     authRequired: false,
@@ -19,11 +22,8 @@ const config = {
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
-
-// req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => {
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
+app.use(getAccessToken)
+app.use(cookieParser())
 
 
 // Tell the app to use handlebars templating engine.  
