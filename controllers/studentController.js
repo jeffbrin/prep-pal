@@ -112,6 +112,14 @@ studentRouter.post("/next-question", requiresAuth(), async (req, res) => {
     res.send(response);
 })
 
+studentRouter.post('/ask-question', requiresAuth(), async (req, res) => {
+    const email = req.email;
+    const question = req.body.question;
+    const answer = await assistant.sendMessageAndGetResponse(email, question);
+
+    res.send(answer);
+})
+
 studentRouter.post("/end-session", requiresAuth(), async (req, res) => {
     delete assistant.threads[req.email]
     res.sendStatus(200);

@@ -8,13 +8,14 @@ import studentRouter from './controllers/StudentController.js';
 import { auth } from "express-openid-connect"
 import cookieParser from "cookie-parser";
 import { getAccessToken } from "./helpers/get-user-info.js";
+import { AUTH0_SECRET } from "./helpers/environment-variables.js"
 
 const app = express();
 
 const config = {
     authRequired: false,
     auth0Logout: true,
-    secret: 'a long, randomly-generated string stored in env',
+    secret: AUTH0_SECRET,
     baseURL: 'http://localhost:80',
     clientID: '65t9BZBDKxkC3kNGS5SRinTEDUsdPf1K',
     issuerBaseURL: 'https://dev-g2exa1anduv12asq.us.auth0.com'
