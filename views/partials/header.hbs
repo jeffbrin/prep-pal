@@ -1,29 +1,3 @@
-{{!--
-  Partial Template: header.hbs
-  Purpose: 
-    - Provides a consistent header across all pages with specific variations.
-    - Displays dynamic content based on the page context and user interaction.
-
-  Structure:
-    - Error/Confirmation Message Area: 
-      This section is reserved for displaying error messages or confirmation notifications. It will only be visible when there is a message to display.
-
-    - Main Header:
-      - Hamburger Menu: Visible on the left side, for navigation purposes.
-      - Page Title: Displays the current level or page name, situated next to the hamburger menu.
-      - User Information: Displays the username, aligned to the far right.
-
-  Conditional Display:
-    - Home Page: 
-      Displays the site name on the extreme left and 'Login' button on the extreme right. The usual main header components are not displayed.
-
-    - Login Page:
-      These pages will display only the error/warning/confirmation message area if applicable. The main header components are omitted.
-
-  Usage Notes:
-    - This template should be included at the top of page templates where a header is required.
-    - The content for the error/warning/confirmation messages and the page title should be dynamically injected based on the current page context and user state.
---}}
 <header>
   {{!-- SVG images needed for the popup messages --}}
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -69,12 +43,16 @@
         PrepPal
       </a>
       <div class="d-flex">
+        {{#if username}}
+        <!-- Logout Button -->
+        <a class="btn btn-danger btn-logout" href="/logout">Logout</a>
+        {{else}}
+        <!-- Login Button -->
         <a class="btn btn-outline-primary ms-2" href="/login">Login</a>
+        {{/if}}
       </div>
     </div>
   </nav>
-  {{else if (eq currentPage 'Login')}}
-  <!-- No Navbar for Login Pages -->
   {{else}}
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">

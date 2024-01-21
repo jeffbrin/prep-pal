@@ -1,3 +1,20 @@
+/* Color Palette */
+:root {
+    --color-teal: #27D1B3;
+    --color-dark-teal: #20B89A;
+    --color-blue: #1C96F9;
+    --color-dark-blue: #1777C2;
+    --color-darkest-blue: #1c96f940;
+    --color-yellow: #FEE265;
+    --color-orange: #FC9744;
+    --color-pink: #FB6672;
+    --color-dark-pink: #E05A6D;
+    --color-white: #ffffff;
+    --color-grey: #CCCCCC;
+    --color-dark-grey: #333333;
+    --color-black: #000000;
+}
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -8,55 +25,55 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
     /* White background */
+    background-color: var(--color-white);
 }
 
 /* Navbar Styling */
 .navbar {
-    background-color: #ffffff;
     /* White Navbar */
+    background-color: var(--color-white);
 }
 
 .navbar-brand {
-    color: #1C96F9;
     /* Bright Blue for Brand Name */
+    color: var(--color-blue);
 }
 
 .nav-link {
-    color: #FB6672;
     /* Soft Pink for Navbar Links */
+    color: var(--color-pink);
 }
 
 /* Button Styling */
 .btn-outline-success {
-    color: #27D1B3;
+    color: var(--color-teal);
     /* Teal Color for Signup Button */
-    border-color: #27D1B3;
+    border-color: var(--color-teal);
 }
 
 .btn-outline-success:hover {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
     /* Darker Teal on Hover */
-    border-color: #20B89A;
+    border-color: var(--color-dark-teal);
 }
 
 .btn-outline-primary {
-    color: #1C96F9;
+    color: var(--color-blue);
     /* Bright Blue for Login Button */
-    border-color: #1C96F9;
+    border-color: var(--color-blue);
 }
 
 .btn-outline-primary:hover {
-    background-color: #1777C2;
+    background-color: var(--color-dark-blue);
     /* Darker Blue on Hover */
-    border-color: #1777C2;
+    border-color: var(--color-dark-blue);
 }
 
 /* SVG Icons Coloring */
 #check-circle-fill,
 #exclamation-triangle-fill {
-    fill: #FC9744;
+    fill: var(--color-orange);
     /* Warm Orange for Icons */
 }
 
@@ -64,15 +81,15 @@ body {
 header {
     font-size: 1.1em;
     /* Adjust this value to scale the text size */
-    background-color: #ffffff;
+    background-color: var(--color-white);
     /* White background for the header */
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid var(--color-white);
     /* Light grey border to define the edge */
 }
 
 /* Ensuring Navbar background is white */
 .navbar {
-    background-color: #ffffff !important;
+    background-color: var(--color-white) !important;
     /* Force white background */
 }
 
@@ -84,7 +101,7 @@ header {
 
 /* Change hover color for the company name */
 .navbar-brand:hover {
-    color: #1C96F9;
+    color: var(--color-blue);
     /* Bright Blue on Hover */
 }
 
@@ -122,8 +139,331 @@ svg {
 }
 
 .class-block {
-    border: 1px solid #000;
+    border: 1px solid var(--color-black);
     padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
+}
+
+/* Custom Button Styles */
+.btn-custom-submit {
+    background-color: var(--color-teal);
+    /* Teal color for Submit button */
+    color: var(--color-white);
+    /* White text */
+    border: none;
+    /* No border */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.btn-custom-submit:hover,
+.btn-custom-submit:focus {
+    background-color: var(--color-dark-teal);
+    /* Slightly darker teal on hover/focus */
+}
+
+/* Optional: Custom Form Input Styles */
+input.form-control {
+    border: 1px solid var(--color-grey);
+    /* Light grey border */
+    transition: border-color 0.3s ease;
+    /* Transition for focus effect */
+}
+
+input.form-control:focus {
+    border-color: var(--color-blue);
+    /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem var(--color-darkest-blue);
+    /* Bootstrap-style focus shadow */
+}
+
+/* Label Styles */
+label.form-label {
+    color: var(--color-dark-grey);
+    /* Dark grey for readability */
+}
+
+/* General form styling */
+form {
+    max-width: 500px;
+    /* Adjust as needed */
+    margin: auto;
+}
+
+/* Custom Styles */
+
+.class-block {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: var(--color-white);
+    /* White background */
+    border: 1px solid var(--color-white);
+    /* Slight border for definition */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.class-block:hover {
+    box-shadow: 0 4px 8px var(--color-black);
+    /* Shadow effect on hover */
+}
+
+/* Button Styles */
+.btn-signup {
+    background-color: var(--color-teal);
+    border-color: var(--color-teal);
+}
+
+.btn-signup:hover {
+    background-color: var(--color-dark-teal);
+    /* Darker shade on hover */
+    border-color: var(--color-dark-teal);
+}
+
+.btn-login {
+    background-color: var(--color-blue);
+    border-color: var(--color-blue);
+}
+
+.btn-login:hover {
+    background-color: var(--color-dark-blue);
+    /* Darker shade on hover */
+    border-color: var(--color-dark-blue);
+}
+
+.class-block {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: var(--color-white);
+    /* White background */
+    border-left: 10px solid var(--color-blue);
+    /* Thicker colored border on the left */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.class-block:hover {
+    box-shadow: 0 4px 8px var(--color-black);
+    /* Shadow effect on hover */
+}
+
+.border-color-0 {
+    border-left-color: var(--color-blue);
+}
+
+.border-color-1 {
+    border-left-color: var(--color-teal);
+}
+
+.border-color-2 {
+    border-left-color: var(--color-yellow);
+}
+
+.border-color-3 {
+    border-left-color: var(--color-orange);
+}
+
+.border-color-4 {
+    border-left-color: var(--color-pink);
+}
+
+.question-div {
+    margin-top: 20px;
+}
+
+.question-div p {
+    margin-bottom: 10px;
+}
+
+.question-div .form-control {
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: var(--color-dark-teal);
+    /* Teal color for submit button */
+    border: none;
+    color: var(--color-white);
+}
+
+.submit-btn:hover {
+    background-color: var(--color-dark-teal);
+    /* Darker shade of teal for hover */
+}
+
+.question-div {
+    margin-top: 20px;
+    align-items: center;
+    /* Align items vertically */
+}
+
+.question-div p {
+    margin-bottom: 0;
+    /* Remove bottom margin from paragraph */
+}
+
+.question-div .form-control {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    background-color: var(--color-teal);
+    /* Teal color for submit button */
+    border: none;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: var(--color-dark-teal);
+    /* Darker shade of teal for hover */
+}
+
+.image-btn {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.image-btn img {
+    height: 30px;
+    /* Adjust as needed */
+    width: auto;
+}
+
+.skip-btn {
+    background-color: var(--color-pink);
+    /* Soft pink color for skip button */
+    color: var(--color-white);
+    border: none;
+    margin-top: 10px;
+}
+
+.skip-btn:hover {
+    background-color: var(--color-dark-pink);
+    /* Darker shade of pink for hover */
+}
+
+.container {
+    height: 100vh;
+    /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Space between question and skip button */
+}
+
+.question-div {
+    margin-top: 20px;
+}
+
+.question-div p {
+    margin-bottom: 10px;
+}
+
+.question-div .form-control {
+    margin-top: 10px;
+}
+
+.image-btn {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.image-btn img {
+    height: 20px;
+    /* Smaller size for the question mark */
+    width: auto;
+}
+
+.submit-btn {
+    background-color: var(--color-teal);
+    border: none;
+    color: var(--color-white);
+}
+
+.submit-btn:hover {
+    background-color: var(--color-dark-teal);
+}
+
+.skip-btn {
+    background-color: var(--color-pink);
+    color: var(--color-white);
+    border: none;
+}
+
+.skip-btn:hover {
+    background-color: var(--color-dark-pink);
+}
+
+.no-scroll-page {
+    height: 90vh;
+    /* Full height of the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ensures space distribution */
+    padding: 20px 0;
+    /* Adds some padding at top and bottom */
+}
+
+.no-scroll-page .question-div {
+    overflow-y: auto;
+    /* Allows scrolling within this div if needed */
+    flex-grow: 1;
+    /* Allows this div to grow */
+    margin-bottom: 10px;
+    /* Adds some space at the bottom */
+}
+
+.no-scroll-page .question-div textarea {
+    height: auto;
+    /* Adjusts height of textarea */
+    max-height: 40vh;
+    /* Limits height to ensure it fits in the viewport */
+}
+
+.no-scroll-page .d-flex.justify-content-end {
+    margin-top: 10px;
+    /* Adds some space above the skip button */
+}
+
+.navbar-text {
+    margin-right: 20px;
+    /* Adjust the value as needed */
+}
+
+.chat-area {
+    position: fixed;
+    right: -300px;
+    /* Initially hidden */
+    top: 0;
+    width: 300px;
+    /* Adjust width as needed */
+    height: 100vh;
+    background-color: white;
+    border-left: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s;
+}
+
+.chat-messages {
+    height: 85%;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    margin-bottom: 5px;
+}
+
+.btn-logout {
+    background-color: var(--color-pink);
+}
+
+.btn-logout:hover {
+    background-color: var(--color-dark-pink);
 }
