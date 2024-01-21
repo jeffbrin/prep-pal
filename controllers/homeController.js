@@ -1,5 +1,4 @@
 import express from 'express';
-//import { auth0 } from '../config/auth0'; // auth0 configuration
 
 //Create a new express router
 const router = express.Router();
@@ -19,6 +18,7 @@ router.get('/signup', (req, res) => {
 //Define a route for the sign-in page
 router.get('/login', (req, res) => {
     // Render the login page view
+    handleAuth();
     res.render('login.hbs', { currentPage: "Login" });
 });
 
