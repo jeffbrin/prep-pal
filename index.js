@@ -3,7 +3,7 @@ import db from "./database/database.js";
 import studentsRepo from "./repos/students-repo.js";
 import classRepo from "./repos/class-repo.js"
 import { LOGGER, LogType } from "./logger.js";
-const port = 3000;
+const port = 80;
 
 const DB_NAME = "TestDB"
 
