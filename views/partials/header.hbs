@@ -76,18 +76,25 @@
   {{else}}
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <!-- Hamburger Menu and Page Name in a Flex Container -->
+      <!-- Left Side: Hamburger Menu and Page Name -->
       <div class="d-flex align-items-center">
         <!-- Hamburger Menu -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+  
         <!-- Site name, immediately next to the hamburger menu -->
         <span class="navbar-brand ms-2">{{currentPage}}</span>
       </div>
-
+  
+      <!-- Right Side: Username -->
+      <div class="ms-auto">
+        <span class="navbar-text">
+          {{username}}
+        </span>
+      </div>
+  
       <!-- Collapsible part of the navbar -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -98,11 +105,6 @@
           {{/each}}
         </ul>
       </div>
-
-      <!-- Username to the right, outside the collapsible area -->
-      <span class="navbar-text ms-auto">
-        {{username}}
-      </span>
     </div>
   </nav>
   {{/if}}
