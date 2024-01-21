@@ -3,9 +3,6 @@ import express from 'express';
 
 //Create a new express router
 const router = express.Router();
-//Define the route root
-const routeRoot = '/';
-
 
 //Define the home page route
 router.get('/', (req, res) => {
