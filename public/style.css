@@ -510,3 +510,33 @@ form {
     max-width: 80%;
     word-wrap: break-word;
 }
+
+#hamburger-menu ul {
+    padding-left: 0;
+    /* Remove default padding */
+    margin-top: 20%;
+    /* Adjust to bring the options higher up */
+}
+
+#hamburger-menu .nav-link {
+    color: var(--color-dark-grey);
+    /* Changed to dark grey for neutrality */
+    font-size: 1.4em;
+    /* Increase font size for more presence */
+    padding: 20px 25px;
+    /* Increase padding for larger touch area */
+    border-radius: 5px;
+    /* Soft rounded corners for a touch of style */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    /* Ensure links take the full width for better touch */
+}
+
+/* Add hover effects for interactivity */
+#hamburger-menu .nav-link:hover,
+#hamburger-menu .nav-link:focus {
+    background-color: var(--color-light-grey);
+    /* Subtle background on hover */
+    color: var(--color-blue);
+    /* Change text color on hover */
+}

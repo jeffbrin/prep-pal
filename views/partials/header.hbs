@@ -54,8 +54,8 @@
       <!-- Left Side: Hamburger Menu and Page Name -->
       <div class="d-flex align-items-center">
         <!-- Hamburger Menu -->
-        <button style="z-index: 10;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button style="z-index: 10;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -87,11 +87,19 @@
   </nav>
   {{/if}}
 </header>
-<div id="hamburger-menu" style="display: flex; flex-direction: column; justify-content: center; transition: all 100ms ease-in-out; position: absolute; height: 100%; width: 20%; top: 0; bottom: 0; background-color: #ddd; left: -600px">
-<ul>
-  <li class="send-btn"><a href="/" ><button class="send-btn">Home</button></a></li>
-  <li class="send-btn"><a href="/student/classes"><button class="send-btn">Classes</button></a></li>
-  <li class="send-btn"><a href="/logout" ><button class="send-btn">Logout</button></a></li>
-</ul>
+<div id="hamburger-menu" class="d-flex flex-column justify-content-center"
+  style="transition: all 100ms ease-in-out; position: absolute; height: 100%; width: 20%; top: 0; bottom: 0; background-color: #ddd; left: -600px">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/student/classes">Classes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/logout">Logout</a>
+    </li>
+  </ul>
+</div>
 <script src="/scripts/hamburger-menu.js"></script>
 </div>
