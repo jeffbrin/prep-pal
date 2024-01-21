@@ -10,6 +10,7 @@
     --color-pink: #FB6672;
     --color-dark-pink: #E05A6D;
     --color-white: #ffffff;
+    --color-light-grey: #e6e2e1;
     --color-grey: #CCCCCC;
     --color-dark-grey: #333333;
     --color-black: #000000;
@@ -204,7 +205,8 @@ form {
     transition: box-shadow 0.3s ease-in-out;
 }
 
-.class-block:hover {
+.class-block:hover,
+.add-class:hover {
     box-shadow: 0 4px 8px var(--color-black);
     /* Shadow effect on hover */
 }
@@ -466,4 +468,19 @@ form {
 
 .btn-logout:hover {
     background-color: var(--color-dark-pink);
+}
+
+.add-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-grey);
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.plus-sign {
+    font-size: 24px;
+    /* Adjust the size as needed */
 }
