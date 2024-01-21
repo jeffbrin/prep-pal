@@ -434,3 +434,28 @@ form {
     margin-right: 20px;
     /* Adjust the value as needed */
 }
+
+.chat-area {
+    position: fixed;
+    right: -300px;
+    /* Initially hidden */
+    top: 0;
+    width: 300px;
+    /* Adjust width as needed */
+    height: 100vh;
+    background-color: white;
+    border-left: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s;
+}
+
+.chat-messages {
+    height: 85%;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    margin-bottom: 5px;
+}
