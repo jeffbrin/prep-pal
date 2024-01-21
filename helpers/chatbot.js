@@ -19,7 +19,6 @@ class Assistant {
         "When asked a question, answer it with your own data or use the following data, if present: " + data +
         "Answer in plain text without formatting.",
       name: "Prep Pal",
-
       tools: [{ type: "code_interpreter" }],
       model: "gpt-3.5-turbo-1106",
     });
@@ -151,12 +150,13 @@ export default assistant
 
 // Class test
 // async function mainTest() {
-//   const topic = "algorithms";
+//   const topic = "history";
 //   const data = ""
-//   const assistant = new Assistant(topic, data);
-//   await assistant.initialize();
-//   await assistant.sendMessage("What is the complexity of binary search?");
-//   console.log(await assistant.getResponse());
+//   await assistant.initializeThread("Jeffrey", "jeff", topic, data)
+//   await assistant.sendMessage("jeff","Can you create a question similar to: What year did Christopher Columbus? Ask the question right away to the student and don't talk to me.");
+//   console.log(await assistant.getResponse("jeff"));
+//   // await assistant.sendMessage("jeff","The student is asking: How do I calculate the time complexity of an algorithm? Answer the question in plain text.");
+//   // console.log(await assistant.getResponse("jeff"));
 // }
 
 // mainTest();
