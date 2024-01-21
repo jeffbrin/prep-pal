@@ -429,3 +429,8 @@ form {
     margin-top: 10px;
     /* Adds some space above the skip button */
 }
+
+.navbar-text {
+    margin-right: 20px;
+    /* Adjust the value as needed */
+}
