@@ -1,0 +1,10 @@
+<ul class="list-unstyled">
+    {{#each classes}}
+    <li>
+        <div class="class-block rounded" onclick="window.location='/student/course?classCode={{this.classCode}}'">
+            <h3>{{this.name}}</h3>
+            <p>{{this.professor}}</p>
+        </div>
+    </li>
+    {{/each}}
+</ul>

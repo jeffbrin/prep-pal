@@ -1,0 +1,129 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    /* White background */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #ffffff;
+    /* White Navbar */
+}
+
+.navbar-brand {
+    color: #1C96F9;
+    /* Bright Blue for Brand Name */
+}
+
+.nav-link {
+    color: #FB6672;
+    /* Soft Pink for Navbar Links */
+}
+
+/* Button Styling */
+.btn-outline-success {
+    color: #27D1B3;
+    /* Teal Color for Signup Button */
+    border-color: #27D1B3;
+}
+
+.btn-outline-success:hover {
+    background-color: #20B89A;
+    /* Darker Teal on Hover */
+    border-color: #20B89A;
+}
+
+.btn-outline-primary {
+    color: #1C96F9;
+    /* Bright Blue for Login Button */
+    border-color: #1C96F9;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1777C2;
+    /* Darker Blue on Hover */
+    border-color: #1777C2;
+}
+
+/* SVG Icons Coloring */
+#check-circle-fill,
+#exclamation-triangle-fill {
+    fill: #FC9744;
+    /* Warm Orange for Icons */
+}
+
+/* Header Styling */
+header {
+    font-size: 1.1em;
+    /* Adjust this value to scale the text size */
+    background-color: #ffffff;
+    /* White background for the header */
+    border-bottom: 2px solid #f0f0f0;
+    /* Light grey border to define the edge */
+}
+
+/* Ensuring Navbar background is white */
+.navbar {
+    background-color: #ffffff !important;
+    /* Force white background */
+}
+
+/* Make the company name larger */
+.navbar-brand {
+    font-size: 1.7em;
+    /* Increase the brand/logo text size */
+}
+
+/* Change hover color for the company name */
+.navbar-brand:hover {
+    color: #1C96F9;
+    /* Bright Blue on Hover */
+}
+
+.navbar-brand img {
+    width: 1em;
+    /* Adjust width in em units */
+    height: 1em;
+    /* Adjust height in em units */
+    vertical-align: top;
+    /* Aligns image with the top of the text */
+}
+
+/* Adjust the size of the buttons in the navbar */
+.btn {
+    padding: 0.6em 1.2em;
+    /* Increase padding to make buttons larger */
+    font-size: 1.05em;
+    /* Slightly increase font size for button text */
+}
+
+/* Adjust navbar link sizes */
+.nav-link {
+    font-size: 1.05em;
+    /* Slightly increase the font size of navbar links */
+    padding: 0.5em 1em;
+    /* Adjust padding for better spacing */
+}
+
+/* You might also want to adjust the size of the SVG icons in the header */
+svg {
+    width: 1.2em;
+    /* Adjust the width */
+    height: 1.2em;
+    /* Adjust the height */
+}
+
+.class-block {
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

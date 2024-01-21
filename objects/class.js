@@ -35,8 +35,8 @@ export default class Class {
     constructor(name, professor, topics = null, classCode = null) {
         this.name = name
         this.professor = professor
-        this.topics = topics ?? []
-        this.classCode = classCode ?? generateClassCode(Class.CLASS_CODE_LENGTH).toUpperCase()
+        this.topics = topics ? topics : []
+        this.classCode = classCode ? classCode : generateClassCode(Class.CLASS_CODE_LENGTH).toUpperCase()
     }
 
     /**
@@ -48,7 +48,7 @@ export default class Class {
             _id: this.classCode,
             name: this.name,
             professor: this.professor,
-            topics: this.topics
+            topics: this.topics.map(topic => topic.serialize())
         }
     }
 }
