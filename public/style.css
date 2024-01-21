@@ -1,10 +1,18 @@
 /* Color Palette */
 :root {
     --color-teal: #27D1B3;
+    --color-dark-teal: #20B89A;
     --color-blue: #1C96F9;
+    --color-dark-blue: #1777C2;
+    --color-darkest-blue: #1c96f940;
     --color-yellow: #FEE265;
     --color-orange: #FC9744;
     --color-pink: #FB6672;
+    --color-dark-pink: #E05A6D;
+    --color-white: #ffffff;
+    --color-grey: #CCCCCC;
+    --color-dark-grey: #333333;
+    --color-black: #000000;
 }
 
 /* Basic Reset */
@@ -17,55 +25,55 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
     /* White background */
+    background-color: var(--color-white);
 }
 
 /* Navbar Styling */
 .navbar {
-    background-color: #ffffff;
     /* White Navbar */
+    background-color: var(--color-white);
 }
 
 .navbar-brand {
-    color: #1C96F9;
     /* Bright Blue for Brand Name */
+    color: var(--color-blue);
 }
 
 .nav-link {
-    color: #FB6672;
     /* Soft Pink for Navbar Links */
+    color: var(--color-pink);
 }
 
 /* Button Styling */
 .btn-outline-success {
-    color: #27D1B3;
+    color: var(--color-teal);
     /* Teal Color for Signup Button */
-    border-color: #27D1B3;
+    border-color: var(--color-teal);
 }
 
 .btn-outline-success:hover {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
     /* Darker Teal on Hover */
-    border-color: #20B89A;
+    border-color: var(--color-dark-teal);
 }
 
 .btn-outline-primary {
-    color: #1C96F9;
+    color: var(--color-blue);
     /* Bright Blue for Login Button */
-    border-color: #1C96F9;
+    border-color: var(--color-blue);
 }
 
 .btn-outline-primary:hover {
-    background-color: #1777C2;
+    background-color: var(--color-dark-blue);
     /* Darker Blue on Hover */
-    border-color: #1777C2;
+    border-color: var(--color-dark-blue);
 }
 
 /* SVG Icons Coloring */
 #check-circle-fill,
 #exclamation-triangle-fill {
-    fill: #FC9744;
+    fill: var(--color-orange);
     /* Warm Orange for Icons */
 }
 
@@ -73,15 +81,15 @@ body {
 header {
     font-size: 1.1em;
     /* Adjust this value to scale the text size */
-    background-color: #ffffff;
+    background-color: var(--color-white);
     /* White background for the header */
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid var(--color-white);
     /* Light grey border to define the edge */
 }
 
 /* Ensuring Navbar background is white */
 .navbar {
-    background-color: #ffffff !important;
+    background-color: var(--color-white) !important;
     /* Force white background */
 }
 
@@ -93,7 +101,7 @@ header {
 
 /* Change hover color for the company name */
 .navbar-brand:hover {
-    color: #1C96F9;
+    color: var(--color-blue);
     /* Bright Blue on Hover */
 }
 
@@ -131,7 +139,7 @@ svg {
 }
 
 .class-block {
-    border: 1px solid #000;
+    border: 1px solid var(--color-black);
     padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -139,9 +147,9 @@ svg {
 
 /* Custom Button Styles */
 .btn-custom-submit {
-    background-color: #27D1B3;
+    background-color: var(--color-teal);
     /* Teal color for Submit button */
-    color: white;
+    color: var(--color-white);
     /* White text */
     border: none;
     /* No border */
@@ -151,28 +159,28 @@ svg {
 
 .btn-custom-submit:hover,
 .btn-custom-submit:focus {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
     /* Slightly darker teal on hover/focus */
 }
 
 /* Optional: Custom Form Input Styles */
 input.form-control {
-    border: 1px solid #CCCCCC;
+    border: 1px solid var(--color-grey);
     /* Light grey border */
     transition: border-color 0.3s ease;
     /* Transition for focus effect */
 }
 
 input.form-control:focus {
-    border-color: #1C96F9;
+    border-color: var(--color-blue);
     /* Blue border on focus */
-    box-shadow: 0 0 0 0.2rem rgba(28, 150, 249, 0.25);
+    box-shadow: 0 0 0 0.2rem var(--color-darkest-blue);
     /* Bootstrap-style focus shadow */
 }
 
 /* Label Styles */
 label.form-label {
-    color: #333333;
+    color: var(--color-dark-grey);
     /* Dark grey for readability */
 }
 
@@ -189,25 +197,16 @@ form {
     cursor: pointer;
     padding: 20px;
     margin-bottom: 10px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     /* White background */
-    border: 1px solid #dddddd;
+    border: 1px solid var(--color-white);
     /* Slight border for definition */
     transition: box-shadow 0.3s ease-in-out;
 }
 
 .class-block:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--color-black);
     /* Shadow effect on hover */
-}
-
-/* Color Palette */
-:root {
-    --color-teal: #27D1B3;
-    --color-blue: #1C96F9;
-    --color-yellow: #FEE265;
-    --color-orange: #FC9744;
-    --color-pink: #FB6672;
 }
 
 /* Button Styles */
@@ -217,9 +216,9 @@ form {
 }
 
 .btn-signup:hover {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
     /* Darker shade on hover */
-    border-color: #20B89A;
+    border-color: var(--color-dark-teal);
 }
 
 .btn-login {
@@ -228,16 +227,16 @@ form {
 }
 
 .btn-login:hover {
-    background-color: #1777C2;
+    background-color: var(--color-dark-blue);
     /* Darker shade on hover */
-    border-color: #1777C2;
+    border-color: var(--color-dark-blue);
 }
 
 .class-block {
     cursor: pointer;
     padding: 20px;
     margin-bottom: 10px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     /* White background */
     border-left: 10px solid var(--color-blue);
     /* Thicker colored border on the left */
@@ -245,10 +244,9 @@ form {
 }
 
 .class-block:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--color-black);
     /* Shadow effect on hover */
 }
-
 
 .border-color-0 {
     border-left-color: var(--color-blue);
@@ -283,14 +281,14 @@ form {
 }
 
 .submit-btn {
-    background-color: #27D1B3;
+    background-color: var(--color-dark-teal);
     /* Teal color for submit button */
     border: none;
-    color: white;
+    color: var(--color-white);
 }
 
 .submit-btn:hover {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
     /* Darker shade of teal for hover */
 }
 
@@ -311,14 +309,14 @@ form {
 }
 
 .submit-btn {
-    background-color: #27D1B3;
+    background-color: var(--color-teal);
     /* Teal color for submit button */
     border: none;
     color: white;
 }
 
 .submit-btn:hover {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
     /* Darker shade of teal for hover */
 }
 
@@ -335,15 +333,15 @@ form {
 }
 
 .skip-btn {
-    background-color: #FB6672;
+    background-color: var(--color-pink);
     /* Soft pink color for skip button */
-    color: white;
+    color: var(--color-white);
     border: none;
     margin-top: 10px;
 }
 
 .skip-btn:hover {
-    background-color: #E05A6D;
+    background-color: var(--color-dark-pink);
     /* Darker shade of pink for hover */
 }
 
@@ -381,23 +379,23 @@ form {
 }
 
 .submit-btn {
-    background-color: #27D1B3;
+    background-color: var(--color-teal);
     border: none;
-    color: white;
+    color: var(--color-white);
 }
 
 .submit-btn:hover {
-    background-color: #20B89A;
+    background-color: var(--color-dark-teal);
 }
 
 .skip-btn {
-    background-color: #FB6672;
-    color: white;
+    background-color: var(--color-pink);
+    color: var(--color-white);
     border: none;
 }
 
 .skip-btn:hover {
-    background-color: #E05A6D;
+    background-color: var(--color-dark-pink);
 }
 
 .no-scroll-page {
