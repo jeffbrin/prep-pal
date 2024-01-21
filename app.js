@@ -5,7 +5,7 @@ import { engine } from "express-handlebars";
 import bodyParser from "body-parser";
 import router from './controllers/homeController.js';
 import { eq, or } from "./helpers/handlebars-helpers.js";
-//import studentRouter from './controllers/studentController';
+import studentRouter from './controllers/StudentController.js';
 
 // Tell the app to use handlebars templating engine.  
 // Configure the engine to use a simple .hbs extension to simplify file naming
@@ -24,7 +24,7 @@ app.use(express.static('public'))
 
 try {
     app.use('/', router);
-    //app.use('/students', studentRouter);
+    app.use('/student', studentRouter);
 } catch (error) {
     //fail gracefully if no routes for this controller
     LOGGER.error(error);
