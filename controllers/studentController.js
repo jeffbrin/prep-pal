@@ -58,19 +58,37 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
 
     data += topic.infoText
 
-    await assistant.initializeThread(req.email, topic, data)
-    res.render('student/topic.hbs', { currentPage: "Topic", username: req.firstName });
+    await assistant.initializeThread(req.firstName, req.email, topic, data)
+    await assistant.sendMessageAndGetResponse(req.email, `Think of 2 questions which test different aspects of ${topic.name}. Each question must be at least 2 sentences long." +
+    Unless the answer to the question is a statement of fact, add a sentence of context to your question." +
+    "I will ask you to list these questions in my following messages.`)
+    const question = await assistant.sendMessageAndGetResponse(req.email, "Ask the first question. Do not respond to me, simply ask the question.")
+    res.render('student/topic.hbs', { currentPage: "Topic", username: req.firstName, question: question });
 });
 
-studentRouter.post("/query_bot", requiresAuth(), async (req, res) => {
+studentRouter.post("/submit-answer", requiresAuth(), async (req, res) => {
     const email = req.email;
-    console.log(email)
     const msg = req.body.msg;
 
-    console.log(msg)
-    const response = await assistant.sendMessageAndGetResponse(email, msg);
-    console.log(response)
+    const answer = `The following is the student's answer to your previous question: "${msg}". ` +
+        'Please respond in the following json format: {"correct": bool, "explanation": ...}. ' +
+        "The explanation should follow the following format. 1 sentence saying whether the answer was right or wrong, " +
+        "3 sentences or more explaining the correct solution. Write the explanation directly to the student."
+
+    const response = await assistant.sendMessageAndGetResponse(email, answer);
     res.send(response)
+})
+
+studentRouter.post("/next-question", requiresAuth(), async (req, res) => {
+    const email = req.email;
+    const msg = 'Ask the next question. Do not respond to me, only ask the question. If you have asked all the original questions, respond with "{}".'
+    const response = await assistant.sendMessageAndGetResponse(email, msg);
+    res.send(response);
+})
+
+studentRouter.post("/end-session", requiresAuth(), async (req, res) => {
+    delete assistant.threads[req.email]
+    res.sendStatus(200);
 })
 
 export default studentRouter;
