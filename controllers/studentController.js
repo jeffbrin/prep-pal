@@ -68,7 +68,7 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
     Unless the answer to the question is a statement of fact, add a sentence of context to your question." +
     "I will ask you to either give me a new question or I will give you a question by the student in the following messages.`)
     const question = await assistant.sendMessageAndGetResponse(req.email, "Ask the first question. Do not respond to me, simply ask the question.")
-    res.render('student/topic.hbs', { currentPage: "Topic", username: req.firstName, question: question });
+    res.render('student/topic.hbs', { currentPage: topic.name, username: req.firstName, question: question });
 });
 
 studentRouter.post("/submit-answer", requiresAuth(), async (req, res) => {
