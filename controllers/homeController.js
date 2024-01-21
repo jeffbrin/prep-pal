@@ -10,22 +10,16 @@ router.get('/', async (req, res) => {
     if (req.email) {
         if (!await studentsRepo.getStudent(req.email))
             await studentsRepo.addStudent(req.email);
+
+        let firstName = req.firstName;
+        studentsRepo.getStudent(req.email).then(student => {
+            res.render('student/classes.hbs', { currentPage: "Classes", username: firstName, classes: student.classes });
+        });
     }
-
-    // Render the home page view
-    res.render('home.hbs', { currentPage: "Home" });
-});
-
-//Define a route for the sign-up page
-router.get('/signup', (req, res) => {
-    // Render the sign-up page view
-    res.render('signup.hbs', { currentPage: "Signup" });
-});
-
-//Define a route for the sign-in page
-router.get('/login', (req, res) => {
-    // Render the login page view
-    res.render('login.hbs', { currentPage: "Login" });
+    else {
+        // Render the home page view
+        res.render('home.hbs', { currentPage: "Home" });
+    }
 });
 
 export default router;

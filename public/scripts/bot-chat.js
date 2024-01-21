@@ -2,7 +2,8 @@ ANSWER_ENDPOINT = "/student/submit-answer"
 QUESTION_ENDPOINT = "/student/next-question"
 END_ENDPOINT = "/student/end-session"
 
-const questionElement = '<div class="question-div"><p></p><input type="text"><button onclick="submit()">submit</button><p></p></div>'
+const questionElement = '<div class="d-flex justify-content-between align-items-start"><p></p><button class="btn image-btn" onclick="toggleChat()">' +
+    '<img src = "/images/question.png" alt = "Button Image" /></button></div><textarea class="form-control"></textarea><button class="btn btn-primary send-btn" onclick="submit()">Submit</button><p></p>'
 
 async function submitAnswer(answer, div) {
     const response = await $.post(ANSWER_ENDPOINT, {
@@ -48,12 +49,12 @@ async function promptQuestion() {
 
         const elem = document.createElement('div')
         elem.innerHTML = questionElement
-        console.log(elem)
-        const body = $("body")[0]
-        console.log(body)
-        body.appendChild(elem)
+        elem.className = "question-div"
+        const container = document.getElementsByClassName('container')[0]
+        container.insertBefore(elem, container.children[container.children.length - 2])
 
         elem.children[0].children[0].innerText = q
+
     }
     catch (e) {
         console.log(e)
