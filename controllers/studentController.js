@@ -42,6 +42,8 @@ studentRouter.post('/join-class', requiresAuth(), async (req, res) => {
 studentRouter.get('/topic', requiresAuth(), async (req, res) => {
     currentQuestion = 0;
     questionCount = 3;
+    wrongAnswers = 0;
+    correctAnswers = 0;
     try {
         // TODO: Send these to this endpoint
         const topicName = req.query.topic
