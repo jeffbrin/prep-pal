@@ -459,3 +459,11 @@ form {
 .chat-input {
     margin-bottom: 5px;
 }
+
+.btn-logout {
+    background-color: var(--color-pink);
+}
+
+.btn-logout:hover {
+    background-color: var(--color-dark-pink);
+}

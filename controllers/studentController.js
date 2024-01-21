@@ -1,6 +1,5 @@
 import express from 'express';
 import pkg from 'express-openid-connect';
-const requiresAuth = pkg.requiresAuth
 import studentsRepo from '../repos/students-repo.js';
 import assistant from '../helpers/chatbot.js';
 import path from 'path';
@@ -8,8 +7,8 @@ import Topic from '../objects/topic.js';
 import classRepo from '../repos/class-repo.js';
 import { readFile } from '../helpers/file-manager.js';
 
-//Create a new express router
 const studentRouter = express.Router();
+const requiresAuth = pkg.requiresAuth;
 
 const maxQuestions = 7;
 let questionCount = 0;
