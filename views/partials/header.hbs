@@ -24,7 +24,6 @@
     - This template should be included at the top of page templates where a header is required.
     - The content for the error/warning/confirmation messages and the page title should be dynamically injected based on the current page context and user state.
 --}}
-
 <header>
   {{!-- SVG images needed for the popup messages --}}
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -61,7 +60,7 @@
   {{/if}}
 
   {{!-- Navbar --}}
-  {{#if (eq currentPage 'home')}}
+  {{#if (eq currentPage 'Home')}}
   {{!-- Navbar for Home Page --}}
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
@@ -72,34 +71,38 @@
       </div>
     </div>
   </nav>
-  {{else if (or (eq currentPage 'signup') (eq currentPage 'login'))}}
+  {{else if (or (eq currentPage 'Signup') (eq currentPage 'Login'))}}
   <!-- No Navbar for Signup and Login Pages -->
   {{else}}
-  {{!-- Default Navbar --}}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      {{!-- Hamburger Menu --}}
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Hamburger Menu and Page Name in a Flex Container -->
+      <div class="d-flex align-items-center">
+        <!-- Hamburger Menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      {{!-- Site name --}}
-      <a class="navbar-brand" href="#">{{pageName}}</a>
+        <!-- Site name, immediately next to the hamburger menu -->
+        <span class="navbar-brand ms-2">{{currentPage}}</span>
+      </div>
 
-      {{!-- Navbar Links --}}
+      <!-- Collapsible part of the navbar -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+          {{#each pathSegments as |segment|}}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">{{currentPage}}</a>
+            <a class="nav-link" href="/{{buildPath @index}}">{{segment}}</a>
           </li>
+          {{/each}}
         </ul>
-
-        <!-- Username to the right -->
-        <span class="navbar-text ms-auto">
-          {{username}}
-        </span>
       </div>
+
+      <!-- Username to the right, outside the collapsible area -->
+      <span class="navbar-text ms-auto">
+        {{username}}
+      </span>
     </div>
   </nav>
   {{/if}}
