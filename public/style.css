@@ -1,3 +1,12 @@
+/* Color Palette */
+:root {
+    --color-teal: #27D1B3;
+    --color-blue: #1C96F9;
+    --color-yellow: #FEE265;
+    --color-orange: #FC9744;
+    --color-pink: #FB6672;
+}
+
 /* Basic Reset */
 * {
     margin: 0;
@@ -130,35 +139,130 @@ svg {
 
 /* Custom Button Styles */
 .btn-custom-submit {
-    background-color: #27D1B3; /* Teal color for Submit button */
-    color: white; /* White text */
-    border: none; /* No border */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    background-color: #27D1B3;
+    /* Teal color for Submit button */
+    color: white;
+    /* White text */
+    border: none;
+    /* No border */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
 }
 
-.btn-custom-submit:hover, 
+.btn-custom-submit:hover,
 .btn-custom-submit:focus {
-    background-color: #20B89A; /* Slightly darker teal on hover/focus */
+    background-color: #20B89A;
+    /* Slightly darker teal on hover/focus */
 }
 
 /* Optional: Custom Form Input Styles */
 input.form-control {
-    border: 1px solid #CCCCCC; /* Light grey border */
-    transition: border-color 0.3s ease; /* Transition for focus effect */
+    border: 1px solid #CCCCCC;
+    /* Light grey border */
+    transition: border-color 0.3s ease;
+    /* Transition for focus effect */
 }
 
 input.form-control:focus {
-    border-color: #1C96F9; /* Blue border on focus */
-    box-shadow: 0 0 0 0.2rem rgba(28, 150, 249, 0.25); /* Bootstrap-style focus shadow */
+    border-color: #1C96F9;
+    /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(28, 150, 249, 0.25);
+    /* Bootstrap-style focus shadow */
 }
 
 /* Label Styles */
 label.form-label {
-    color: #333333; /* Dark grey for readability */
+    color: #333333;
+    /* Dark grey for readability */
 }
 
 /* General form styling */
 form {
-    max-width: 500px; /* Adjust as needed */
+    max-width: 500px;
+    /* Adjust as needed */
     margin: auto;
+}
+
+/* Custom Styles */
+
+.class-block {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    /* White background */
+    border: 1px solid #dddddd;
+    /* Slight border for definition */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.class-block:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow effect on hover */
+}
+
+/* Color Palette */
+:root {
+    --color-teal: #27D1B3;
+    --color-blue: #1C96F9;
+    --color-yellow: #FEE265;
+    --color-orange: #FC9744;
+    --color-pink: #FB6672;
+}
+
+/* Button Styles */
+.btn-signup {
+    background-color: var(--color-teal);
+    border-color: var(--color-teal);
+}
+
+.btn-signup:hover {
+    background-color: #20B89A;
+    /* Darker shade on hover */
+    border-color: #20B89A;
+}
+
+.btn-login {
+    background-color: var(--color-blue);
+    border-color: var(--color-blue);
+}
+
+.btn-login:hover {
+    background-color: #1777C2;
+    /* Darker shade on hover */
+    border-color: #1777C2;
+}
+
+.class-block {
+    cursor: pointer;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* White background */
+    border-left: 10px solid var(--color-blue); /* Thicker colored border on the left */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.class-block:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect on hover */
+}
+
+
+.border-color-0 {
+    border-left-color: var(--color-blue);
+}
+
+.border-color-1 {
+    border-left-color: var(--color-teal);
+}
+
+.border-color-2 {
+    border-left-color: var(--color-yellow);
+}
+
+.border-color-3 {
+    border-left-color: var(--color-orange);
+}
+
+.border-color-4 {
+    border-left-color: var(--color-pink);
 }
