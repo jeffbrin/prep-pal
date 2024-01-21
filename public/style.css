@@ -127,3 +127,38 @@ svg {
     margin-bottom: 10px;
     cursor: pointer;
 }
+
+/* Custom Button Styles */
+.btn-custom-submit {
+    background-color: #27D1B3; /* Teal color for Submit button */
+    color: white; /* White text */
+    border: none; /* No border */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-custom-submit:hover, 
+.btn-custom-submit:focus {
+    background-color: #20B89A; /* Slightly darker teal on hover/focus */
+}
+
+/* Optional: Custom Form Input Styles */
+input.form-control {
+    border: 1px solid #CCCCCC; /* Light grey border */
+    transition: border-color 0.3s ease; /* Transition for focus effect */
+}
+
+input.form-control:focus {
+    border-color: #1C96F9; /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(28, 150, 249, 0.25); /* Bootstrap-style focus shadow */
+}
+
+/* Label Styles */
+label.form-label {
+    color: #333333; /* Dark grey for readability */
+}
+
+/* General form styling */
+form {
+    max-width: 500px; /* Adjust as needed */
+    margin: auto;
+}
