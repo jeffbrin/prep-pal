@@ -1,0 +1,53 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* White background */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #ffffff; /* White Navbar */
+}
+
+.navbar-brand {
+    color: #1C96F9; /* Bright Blue for Brand Name */
+}
+
+.nav-link {
+    color: #FB6672; /* Soft Pink for Navbar Links */
+}
+
+/* Button Styling */
+.btn-outline-success {
+    color: #27D1B3; /* Teal Color for Signup Button */
+    border-color: #27D1B3;
+}
+
+.btn-outline-success:hover {
+    background-color: #20B89A; /* Darker Teal on Hover */
+    border-color: #20B89A;
+}
+
+.btn-outline-primary {
+    color: #1C96F9; /* Bright Blue for Login Button */
+    border-color: #1C96F9;
+}
+
+.btn-outline-primary:hover {
+    background-color: #1777C2; /* Darker Blue on Hover */
+    border-color: #1777C2;
+}
+
+/* SVG Icons Coloring */
+#check-circle-fill, #exclamation-triangle-fill {
+    fill: #FC9744; /* Warm Orange for Icons */
+}
+
+/* Additional Styling as per requirement */
