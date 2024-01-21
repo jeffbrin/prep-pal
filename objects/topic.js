@@ -80,4 +80,19 @@ export default class Topic {
             questionsCount: this.questionsCount
         }
     }
+
+    /**
+     * Updates the current topic with the data from another topic.
+     * @param {Topic} topic The topic object to copy from
+     */
+    copy(topic) {
+        this.name = topic.name ?? topic._id;
+        this.avgScore = topic.avgScore;
+        this.infoText = topic.infoText;
+        this.files = topic.files;
+        this.avgTimePerQuestion = topic.avgTimePerQuestion;
+        this.questionsCount = topic.questionsCount;
+
+        return this
+    }
 }

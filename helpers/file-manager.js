@@ -1,4 +1,5 @@
 import fs from 'fs/promises'
+import path from 'path';
 
 /**
  * Reads a file and returns the contents.
@@ -15,5 +16,15 @@ export async function readFile(filename) {
  * @param {string} filename The filename to write the data to.
  */
 export async function writeFile(data, filename) {
+
+    if (data instanceof Object) {
+        data = JSON.stringify(data);
+    }
+
+    try {
+        await fs.mkdir(path.dirname(filename));
+    }
+    catch (e) { }
+
     await fs.writeFile(filename, data)
 }
