@@ -10,6 +10,7 @@
     --color-pink: #FB6672;
     --color-dark-pink: #E05A6D;
     --color-white: #ffffff;
+    --color-light-grey: #e6e2e1;
     --color-grey: #CCCCCC;
     --color-dark-grey: #333333;
     --color-black: #000000;
@@ -204,7 +205,8 @@ form {
     transition: box-shadow 0.3s ease-in-out;
 }
 
-.class-block:hover {
+.class-block:hover,
+.add-class:hover {
     box-shadow: 0 4px 8px var(--color-black);
     /* Shadow effect on hover */
 }
@@ -466,4 +468,75 @@ form {
 
 .btn-logout:hover {
     background-color: var(--color-dark-pink);
+}
+
+.add-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-grey);
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.plus-sign {
+    font-size: 24px;
+    /* Adjust the size as needed */
+}
+
+.sent-message {
+    background-color: var(--color-blue);
+    /* Replace with your preferred color */
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+    /* Bubble shape */
+    margin: 5px 0 5px auto;
+    /* Align to right */
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.received-message {
+    background-color: var(--color-grey);
+    /* Replace with your preferred color */
+    color: black;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+    /* Bubble shape */
+    margin: 5px auto 5px 0;
+    /* Align to left */
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+#hamburger-menu ul {
+    padding-left: 0;
+    /* Remove default padding */
+    margin-top: 20%;
+    /* Adjust to bring the options higher up */
+}
+
+#hamburger-menu .nav-link {
+    color: var(--color-dark-grey);
+    /* Changed to dark grey for neutrality */
+    font-size: 1.4em;
+    /* Increase font size for more presence */
+    padding: 20px 25px;
+    /* Increase padding for larger touch area */
+    border-radius: 5px;
+    /* Soft rounded corners for a touch of style */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    /* Ensure links take the full width for better touch */
+}
+
+/* Add hover effects for interactivity */
+#hamburger-menu .nav-link:hover,
+#hamburger-menu .nav-link:focus {
+    background-color: var(--color-light-grey);
+    /* Subtle background on hover */
+    color: var(--color-blue);
+    /* Change text color on hover */
 }

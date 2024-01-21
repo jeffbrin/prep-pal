@@ -26,22 +26,23 @@
 </div>
 
 <script>
-    async function sendQuestion(){
+    async function sendQuestion() {
         const QUESTION_ENDPOINT = "/student/ask-question"
         const question = document.getElementById('question-text').value
         document.getElementById('question-text').value = ""
-        
+
         const questionsDiv = document.getElementById("chat-messages")
 
         let p = document.createElement("p")
-        p.innerText = `Me: ${question}`;
+        p.innerText = question;
+        p.className = "sent-message"; // Apply sent-message class
         questionsDiv.appendChild(p);
-        
-        const response = await $.post(QUESTION_ENDPOINT, { question: question})
+
+        const response = await $.post(QUESTION_ENDPOINT, { question: question })
 
         p = document.createElement("p")
-        p.innerText = `PrepPal: ${response}`
+        p.innerText = response;
+        p.className = "received-message"; // Apply received-message class
         questionsDiv.appendChild(p)
-
     }
 </script>
