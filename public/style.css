@@ -484,3 +484,29 @@ form {
     font-size: 24px;
     /* Adjust the size as needed */
 }
+
+.sent-message {
+    background-color: var(--color-blue);
+    /* Replace with your preferred color */
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+    /* Bubble shape */
+    margin: 5px 0 5px auto;
+    /* Align to right */
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.received-message {
+    background-color: var(--color-grey);
+    /* Replace with your preferred color */
+    color: black;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+    /* Bubble shape */
+    margin: 5px auto 5px 0;
+    /* Align to left */
+    max-width: 80%;
+    word-wrap: break-word;
+}
