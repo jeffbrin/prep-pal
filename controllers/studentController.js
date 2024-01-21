@@ -1,10 +1,14 @@
 import express from 'express';
+import studentsRepo from '../repos/students-repo.js';
 
 //Create a new express router
 const studentRouter = express.Router();
 
 studentRouter.get('/classes', (req, res) => {
-    res.render('student/classes.hbs', { currentPage: "Classes", username: "placeholder name" });
+    let firstName = req.firstName;
+    studentsRepo.getStudent("Timmy").then(student => {
+        res.render('student/classes.hbs', { currentPage: "Classes", username: firstName, classes: student.classes });
+    });
 });
 
 studentRouter.get('/course', (req, res) => {
