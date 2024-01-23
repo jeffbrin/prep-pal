@@ -5,3 +5,12 @@
     </div>
     <button type="submit" class="btn btn-custom-submit">Join</button>
 </form>
+<form action="/student/create-class" method="post" class="my-4">
+    <div class="mb-3">
+        <label for="className" class="form-label">Class Name</label>
+        <input type="text" id="className" name="className" class="form-control" required>
+        <label for="topics" class="form-label">Topics</label>
+        <input type="text" id="topics" name="topics" class="form-control" placeholder="Comma Separated List of Topics Ex. Topic 1, Topic 2, Topic 3" required>
+    </div>
+    <button type="submit" class="btn btn-custom-submit">Create</button>
+</form>

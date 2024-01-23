@@ -39,6 +39,12 @@ studentRouter.post('/join-class', requiresAuth(), async (req, res) => {
     res.redirect('/student/classes');
 })
 
+
+studentRouter.post('/create-class', requiresAuth(), async (req, res) => {
+    await classRepo.addClass(req.query.className, req.firstName, req.topics.split(",").map(name => new Topic(name)))
+    res.redirect('/student/classes');
+});
+
 studentRouter.get('/topic', requiresAuth(), async (req, res) => {
     currentQuestion = 0;
     questionCount = 3;
@@ -95,7 +101,7 @@ studentRouter.post("/submit-answer", requiresAuth(), async (req, res) => {
 
     const response = await assistant.sendMessageAndGetResponse(email, answer);
     try {
-        
+
         let jsonResponse = JSON.parse(response)
         if (jsonResponse.correct === false) {
             questionCount++;
