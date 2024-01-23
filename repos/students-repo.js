@@ -138,6 +138,11 @@ class StudentsRepo extends Repo {
      * @param {Class} classObj The class to add
      */
     async addClass(student, classObj) {
+
+        if (classObj == null) {
+            return
+        }
+
         const studentObj = await this.getStudent(student)
 
         let alreadyInClass = false
