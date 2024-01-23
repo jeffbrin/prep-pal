@@ -41,7 +41,7 @@ studentRouter.post('/join-class', requiresAuth(), async (req, res) => {
 
 
 studentRouter.post('/create-class', requiresAuth(), async (req, res) => {
-    const classCode = await classRepo.addClass(req.body.className, req.body.firstName, req.body.topics.split(",").map(name => new Topic(name.trim())))
+    const classCode = await classRepo.addClass(req.body.className, `${req.firstName} ${req.lastName}`, req.body.topics.split(",").map(name => new Topic(name.trim())))
     await studentsRepo.addClass(req.email, await classRepo.getClass(classCode))
     res.redirect('/student/classes');
 });
@@ -79,7 +79,7 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
         data += topic.infoText
 
         await assistant.initializeThread(req.firstName, req.email, topic, "")
-        await assistant.sendMessageAndGetResponse(req.email, `Think of a question which tests an aspect of ${topic.name}. Each question must be at least 2 sentences long." +
+        await assistant.sendMessageAndGetResponse(req.email, `Think of a question which tests an aspect of ${topic.name}.Each question must be at least 2 sentences long." +
         Unless the answer to the question is a statement of fact, add a sentence of context to your question." +
         "I will ask you to either give me a new question or I will give you a question by the student in the following messages.`)
         const question = await assistant.sendMessageAndGetResponse(req.email, "Ask the first question. Do not respond to me, simply ask the question.")

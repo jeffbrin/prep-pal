@@ -21,8 +21,8 @@ class ClassRepo extends Repo {
      * @param {Array} topics The topics for this class
      * @returns The class' class code.
      */
-    async addClass(name, profName, topics = []) {
-        const classObj = await this.collection.insertOne(new Class(name, profName, topics).serialize())
+    async addClass(name, profName, topics = [], profEmail = null) {
+        const classObj = await this.collection.insertOne(new Class(name, profName, topics, profEmail = profEmail).serialize())
         return classObj.insertedId
     }
 

@@ -24,6 +24,11 @@ export default class Class {
      */
     classCode
 
+    /**
+     * Used to identify the prof user
+     */
+    profEmail
+
 
     /**
      * Intiantiates a class 
@@ -32,11 +37,12 @@ export default class Class {
      * @param {Array} topics An array of topics (Optional)
      * @param {string} classCode The class code for this class
      */
-    constructor(name, professor, topics = null, classCode = null) {
+    constructor(name, professor, topics = null, classCode = null, profEmail = null) {
         this.name = name
         this.professor = professor
         this.topics = topics ? topics : []
         this.classCode = classCode ? classCode : generateClassCode(Class.CLASS_CODE_LENGTH).toUpperCase()
+        this.profEmail = profEmail
     }
 
     /**
@@ -49,6 +55,7 @@ export default class Class {
             name: this.name,
             professor: this.professor,
             topics: this.topics.map(topic => topic.serialize())
+            profEmail: this.profEmail
         }
     }
 }
