@@ -41,8 +41,8 @@ studentRouter.post('/join-class', requiresAuth(), async (req, res) => {
 
 
 studentRouter.post('/create-class', requiresAuth(), async (req, res) => {
-    await classRepo.addClass(req.body.className, req.body.firstName, req.body.topics.split(",").map(name => new Topic(name.trim())))
-    await studentsRepo.addClass(req.email, await classRepo.getClass(req.body.classCode))
+    const classCode = await classRepo.addClass(req.body.className, req.body.firstName, req.body.topics.split(",").map(name => new Topic(name.trim())))
+    await studentsRepo.addClass(req.email, await classRepo.getClass(classCode))
     res.redirect('/student/classes');
 });
 
