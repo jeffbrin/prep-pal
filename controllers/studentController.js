@@ -58,8 +58,10 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
 
         const student = await studentsRepo.getStudent(req.email);
         let topic;
+        let className;
         student.classes.forEach(classObj => {
             if (classObj.classCode == classCode) {
+                className = classObj.name;
                 classObj.topics.forEach(topicObj => {
                     if (topicObj.name == topicName) {
                         topic = topicObj;
@@ -78,7 +80,7 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
 
         data += topic.infoText
 
-        await assistant.initializeThread(req.firstName, req.email, topic, "")
+        await assistant.initializeThread(req.firstName, req.email, className, topic, "")
         await assistant.sendMessageAndGetResponse(req.email, `Think of a question which tests an aspect of ${topic.name}.Each question must be at least 2 sentences long." +
         Unless the answer to the question is a statement of fact, add a sentence of context to your question." +
         "I will ask you to either give me a new question or I will give you a question by the student in the following messages.`)
