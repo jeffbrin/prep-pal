@@ -44,10 +44,15 @@
       </a>
       <div class="d-flex">
         <!-- Login Button -->
+        {{#if username}}
+        <a class="btn btn-outline-primary ms-2" href="/student/classes">Classes</a>
+        {{else}}
         <a class="btn btn-outline-primary ms-2" href="/login">Login</a>
+        {{/if}}
       </div>
     </div>
   </nav>
+  
   {{else}}
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">

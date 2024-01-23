@@ -11,11 +11,11 @@ class Assistant {
     this.threads = {}
   }
 
-  async initializeThread(firstName, username, topic, data) {
+  async initializeThread(firstName, username, className, topic, data) {
     //Create an assistant
     this.myAssistant = await openai.beta.assistants.create({
       instructions:
-        "Your name is Prep Pal. You are a personal " + topic.name + ` tutor for a student named ${firstName}. ` +
+        "Your name is Prep Pal. You are a personal " + className + " " + topic.name + ` tutor for a student named ${firstName}. ` +
         "When asked a question, answer it with your own data or use the following data, if present: " + data +
         "Answer in plain text without formatting.",
       name: "Prep Pal",

@@ -39,6 +39,13 @@ studentRouter.post('/join-class', requiresAuth(), async (req, res) => {
     res.redirect('/student/classes');
 })
 
+
+studentRouter.post('/create-class', requiresAuth(), async (req, res) => {
+    const classCode = await classRepo.addClass(req.body.className, `${req.firstName} ${req.lastName}`, req.body.topics.split(",").map(name => new Topic(name.trim())))
+    await studentsRepo.addClass(req.email, await classRepo.getClass(classCode))
+    res.redirect('/student/classes');
+});
+
 studentRouter.get('/topic', requiresAuth(), async (req, res) => {
     currentQuestion = 0;
     questionCount = 3;
@@ -51,8 +58,10 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
 
         const student = await studentsRepo.getStudent(req.email);
         let topic;
+        let className;
         student.classes.forEach(classObj => {
             if (classObj.classCode == classCode) {
+                className = classObj.name;
                 classObj.topics.forEach(topicObj => {
                     if (topicObj.name == topicName) {
                         topic = topicObj;
@@ -71,8 +80,8 @@ studentRouter.get('/topic', requiresAuth(), async (req, res) => {
 
         data += topic.infoText
 
-        await assistant.initializeThread(req.firstName, req.email, topic, "")
-        await assistant.sendMessageAndGetResponse(req.email, `Think of a question which tests an aspect of ${topic.name}. Each question must be at least 2 sentences long." +
+        await assistant.initializeThread(req.firstName, req.email, className, topic, "")
+        await assistant.sendMessageAndGetResponse(req.email, `Think of a question which tests an aspect of ${topic.name}.Each question must be at least 2 sentences long." +
         Unless the answer to the question is a statement of fact, add a sentence of context to your question." +
         "I will ask you to either give me a new question or I will give you a question by the student in the following messages.`)
         const question = await assistant.sendMessageAndGetResponse(req.email, "Ask the first question. Do not respond to me, simply ask the question.")
@@ -95,7 +104,7 @@ studentRouter.post("/submit-answer", requiresAuth(), async (req, res) => {
 
     const response = await assistant.sendMessageAndGetResponse(email, answer);
     try {
-        
+
         let jsonResponse = JSON.parse(response)
         if (jsonResponse.correct === false) {
             questionCount++;
