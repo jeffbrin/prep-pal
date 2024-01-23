@@ -18,10 +18,9 @@ router.get('/', async (req, res) => {
         //     res.render('student/classes.hbs', { currentPage: "Classes", username: firstName, classes: student.classes });
         // });
     }
-    else {
-        // Render the home page view
-        res.render('home.hbs', { currentPage: "Home" });
-    }
+    // Render the home page view
+    res.render('home.hbs', { currentPage: "Home" });
+
 });
 
 export default router;
