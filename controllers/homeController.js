@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         // });
     }
     // Render the home page view
-    res.render('home.hbs', { currentPage: "Home" });
+    res.render('home.hbs', { currentPage: "Home", username: firstName });
 
 });
 
