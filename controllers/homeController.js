@@ -12,9 +12,11 @@ router.get('/', async (req, res) => {
             await studentsRepo.addStudent(req.email);
 
         let firstName = req.firstName;
-        studentsRepo.getStudent(req.email).then(student => {
-            res.render('student/classes.hbs', { currentPage: "Classes", username: firstName, classes: student.classes });
-        });
+        // GET OUT OF HERE ABDEL I wanna be able to go to the home page when logged in lmao
+        // Sincerely, Jeffrey
+        // studentsRepo.getStudent(req.email).then(student => {
+        //     res.render('student/classes.hbs', { currentPage: "Classes", username: firstName, classes: student.classes });
+        // });
     }
     else {
         // Render the home page view
