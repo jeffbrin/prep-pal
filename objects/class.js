@@ -54,7 +54,7 @@ export default class Class {
             _id: this.classCode,
             name: this.name,
             professor: this.professor,
-            topics: this.topics.map(topic => topic.serialize())
+            topics: this.topics.map(topic => topic.serialize()),
             profEmail: this.profEmail
         }
     }
